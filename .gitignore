@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+*.log
+out/
+build/
+*.mp4
+*.wav

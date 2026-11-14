@@ -1,0 +1,18 @@
+{
+  "name": "claude-fable-3d-world",
+  "version": "1.0.0",
+  "description": "A procedural floating-island city in Three.js, written by Claude Fable 5.2, started from the prompt `build me a world`.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node scripts/check-live.mjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  },
+  "engines": { "node": ">=20" }
+}
