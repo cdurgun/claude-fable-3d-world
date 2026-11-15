@@ -59,6 +59,21 @@ const y = rim * (2 + 9 * fbm(x * 0.06, z * 0.06));
 `fbm` adds up four layers of noise, each finer and fainter than the one before.
 The `9` only scales how tall the result gets.
 
+## Play it: Power the Spire
+
+**Power the Spire** is a small 3D browser game built with Three.js, set in the same floating island city. Drive around the island and collect all 8 energy orbs; the eighth one powers the spire in the middle.
+
+Start the server as in [Run it](#run-it) (`npm install`, then `npm start`) and open <http://127.0.0.1:4173/game/index.html>. The page must come from the server; opening `game/index.html` directly from disk does not work.
+
+| Key | Action |
+|---|---|
+| `W` `A` `S` `D` or arrow keys | Drive and steer |
+| `R` | Restart with a new orb layout |
+| `M` | Music on / off |
+| `N` | Sound effects on / off |
+
+Sound starts with your first key press. See [game/README.md](game/README.md) for touch controls, seeds, replays and how the game is built.
+
 ## How it works
 
 Everything on screen is a **pure function of time `t`**. A single `update(t)` positions every object, sets every shader uniform and picks the camera pose, so the scene is deterministic: the same `t` always gives the same frame. All randomness comes from a seeded generator (`mulberry32`), so the world is identical on every run.
@@ -103,6 +118,7 @@ scene/main.js            the whole scene (~670 lines)
 data/timeline.json       word timings used for the on-screen captions
 assets/screenshot.jpg    README image (a frame from the video)
 assets/fonts/            Space Grotesk 500 / 700 (woff2) and its OFL.txt
+game/                    Power the Spire browser game (see game/README.md)
 scripts/serve.mjs        dependency-free static server
 scripts/check-live.mjs   browser test
 ```
