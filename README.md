@@ -44,6 +44,21 @@ npm test
 
 Launches **Google Chrome** with Playwright (the test uses the installed Chrome, `channel: 'chrome'`, so Chrome must be installed; no browser download happens). It checks that the scene plays, then drags and scrolls to confirm the camera really moves, and takes about 30 seconds. Running the scene itself does not need Playwright or Chrome specifically.
 
+## Try it: change one number
+
+The mountains come from a single line in `scene/main.js`:
+
+```js
+const y = rim * (2 + 9 * fbm(x * 0.06, z * 0.06));
+```
+
+1. Open `scene/main.js` and find `terrainHeight`.
+2. Change the `9` to `0` (the peaks flatten out) or `25` (towering peaks).
+3. Save and reload the page.
+
+`fbm` adds up four layers of noise, each finer and fainter than the one before.
+The `9` only scales how tall the result gets.
+
 ## How it works
 
 Everything on screen is a **pure function of time `t`**. A single `update(t)` positions every object, sets every shader uniform and picks the camera pose, so the scene is deterministic: the same `t` always gives the same frame. All randomness comes from a seeded generator (`mulberry32`), so the world is identical on every run.
